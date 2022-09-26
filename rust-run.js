@@ -1,5 +1,7 @@
 import os from 'os'
 import fs from 'fs'
+import path from 'path'
+import url from 'url'
 import { spawnSync } from 'child_process'
 
 export function getPlatform() {
@@ -14,17 +16,18 @@ export function getPlatform() {
 
 export function run(...args) {
   // Will always try to use target/debug first
-  let path
-  let debugPath = './rust-pkg/target/debug/xlsx-csv-rust'
-  let releasePath = `./rust-pkg/target/${getPlatform()}/release/xlsx-csv-rust`
+  let filepath
+  let __dirname = path.dirname(url.fileURLToPath(import.meta.url))
+  let debugPath = path.join(__dirname, 'rust-pkg/target/debug/xlsx-csv-rust')
+  let releasePath = path.join(__dirname, `rust-pkg/target/${getPlatform()}/release/xlsx-csv-rust`)
 
-  if (fs.existsSync(debugPath)) path = debugPath
-  else if (fs.existsSync(debugPath + '.exe')) path = debugPath + '.exe'
-  else if (fs.existsSync(releasePath)) path = releasePath
-  else if (fs.existsSync(releasePath + '.exe')) path = releasePath + '.exe'
+  if (fs.existsSync(debugPath)) filepath = debugPath
+  else if (fs.existsSync(debugPath + '.exe')) filepath = debugPath + '.exe'
+  else if (fs.existsSync(releasePath)) filepath = releasePath
+  else if (fs.existsSync(releasePath + '.exe')) filepath = releasePath + '.exe'
   else throw 'No rust binary found...'
 
-  const result = spawnSync(path, args, {})
+  const result = spawnSync(filepath, args, {})
   if (result.error) throw result.error
   return result
 }
