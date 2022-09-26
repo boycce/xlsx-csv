@@ -1,6 +1,6 @@
 {
   "name": "xlsx-csv-rust",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "author": "Ricky Boyce",
   "description": "Fast xlsx to csv converter",
