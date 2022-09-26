@@ -1,16 +1,43 @@
 {
-  "name": "xlsx-csv",
+  "name": "xlsx-csv-rust",
   "version": "1.0.0",
   "license": "MIT",
   "author": "Ricky Boyce",
   "description": "Fast xlsx to csv converter",
+  "homepage": "https://github.com/boycce/xlsx-csv#readme",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/boycce/xlsx-csv.git"
   },
-  "homepage": "https://github.com/boycce/xlsx-csv#readme"
+  "scripts": {
+    "build": "./rust-build.sh",
+    "minor": "standard-version --release-as minor && npm publish",
+    "patch": "standard-version --release-as patch && npm publish",
+    "test": "cd rust-pkg && cargo watch -x 'run -- ../test/test1.xlsx'",
+    "test:integration": "nodemon -q ./test"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "standard-version": "^9.5.0"
+  },
+  "keywords": [
+    "xlsx",
+    "xlsm",
+    "csv",
+    "convert",
+    "rust",
+    "fast",
+    "xls"
+  ],
+  "standard-version": {
+    "releaseCommitMessageFormat": "{{currentTag}}",
+    "sign": true,
+    "skip": {
+      "changelog": true,
+      "tag": false
+    },
+    "tag-prefix": ""
+  }
 }

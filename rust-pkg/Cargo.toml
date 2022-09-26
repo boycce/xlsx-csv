@@ -1,0 +1,9 @@
+[package]
+name = "xlsx-csv-rust"
+version = "1.0.0"
+authors = ["Ricky Boyce <boycce@gmail.com>", "Ruslan Ianberdin <happierall@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+office = "0.8"
+calamine = { version = "0.18", features = ["dates"] }

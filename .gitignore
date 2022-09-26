@@ -1,0 +1,22 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules
+
+# Build artifacts
+rust-pkg/target/debug
+rust-pkg/target/release
+rust-pkg/**/.*
+rust-pkg/**/*.TAG
+rust-pkg/**/release/**
+!rust-pkg/**/release/xlsx-csv-rust
+!rust-pkg/**/release/xlsx-csv-rust.exe
+
+# Test artifacts
+test/*.csv
+test/.*
