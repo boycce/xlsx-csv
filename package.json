@@ -4,12 +4,12 @@
   "license": "MIT",
   "author": "Ricky Boyce",
   "description": "Fast xlsx to csv converter",
-  "homepage": "https://github.com/boycce/xlsx-csv#readme",
+  "homepage": "https://github.com/boycce/xlsx-csv-rust#readme",
   "main": "index.js",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/boycce/xlsx-csv.git"
+    "url": "git+https://github.com/boycce/xlsx-csv-rust.git"
   },
   "scripts": {
     "build": "./rust-build.sh",
