@@ -15,10 +15,11 @@
     "build": "./rust-build.sh",
     "minor": "standard-version --release-as minor && npm publish",
     "patch": "standard-version --release-as patch && npm publish",
-    "test": "cd rust-pkg && cargo watch -x 'run -- ../test/test1.xlsx'",
+    "test": "cd rust-pkg && cargo watch -x 'run -- ../test/test.xlsx'",
     "test:integration": "nodemon -q ./test"
   },
   "devDependencies": {
+    "csv-parser": "^3.0.0",
     "nodemon": "^2.0.20",
     "standard-version": "^9.5.0"
   },

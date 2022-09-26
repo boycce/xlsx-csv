@@ -51,10 +51,11 @@ fn write_range<W: Write>(dest: &mut W, range: &Range<DataType>, keep_newlines: S
                 DataType::Empty => Ok(()),
                 DataType::String(ref _s) => {
                   let has_double_quotes = _s.contains('"');
+                  let has_comma = _s.contains(',');
                   let has_line_breaks1 = _s.contains("\r");
                   let has_line_breaks2 = _s.contains("\n");
                   let mut s2 = _s.to_owned();
-                  //
+
                   if has_double_quotes {
                     s2 = s2.replace("\"", "\"\"");
                   }
@@ -63,7 +64,7 @@ fn write_range<W: Write>(dest: &mut W, range: &Range<DataType>, keep_newlines: S
                     s2 = s2.replace("\n", " ");
                     s2 = s2.replace("\r", " ");
                   }
-                  if has_double_quotes || has_line_breaks1 || has_line_breaks2 {
+                  if has_double_quotes || has_line_breaks1 || has_line_breaks2 || has_comma {
                     let s3 = "\"".to_owned();
                     s2 = s3 + &s2 + "\"";
                   }
