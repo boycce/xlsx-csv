@@ -9,8 +9,8 @@ yarn-error.log*
 node_modules
 
 # Build artifacts
-rust-pkg/target/debug
-rust-pkg/target/release
+rust-pkg/target/debug/**
+rust-pkg/target/release/**
 rust-pkg/**/.*
 rust-pkg/**/*.TAG
 rust-pkg/**/release/**
@@ -19,4 +19,5 @@ rust-pkg/**/release/**
 
 # Test artifacts
 test/*.csv
+test/test2.xlsx
 test/.*
