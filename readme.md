@@ -28,7 +28,7 @@ console.log(csvData)
 1. Install rust
 2. Install rust target enviornments
   ```bash
-  rustup target add x86_64-apple-darwin  # requires macos machine to build
+  rustup target add x86_64-apple-darwin # requires macos machine to build
   rustup target add aarch64-apple-darwin # requires macos machine to build
   rustup target add x86_64-pc-windows-gnu
   rustup target add x86_64-unknown-linux-musl
