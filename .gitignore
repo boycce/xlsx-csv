@@ -20,4 +20,5 @@ rust-pkg/**/release/**
 # Test artifacts
 test/*.csv
 test/test*.xlsx
+!test/test.xlsx
 test/.*
